@@ -1,7 +1,11 @@
+import Header from '../../components/Header/index';
 
 function Main () {
     return(
-        <h1>Main Page</h1>
+        <section>
+            <Header />
+            <h1>Main Page</h1>
+        </section>
     )
 }
 
