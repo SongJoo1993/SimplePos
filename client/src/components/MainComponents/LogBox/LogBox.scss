@@ -1,0 +1,17 @@
+@use "../../../partials/mixin" as *;
+@use "../../../partials/typography" as *;
+@use "../../../partials/variables" as *;
+
+.logBox {
+    width: 45vw;
+    height: 60%;
+    border: 1px solid black;
+    margin: 1rem 1rem 0 1rem;
+    
+    &__header {
+        width: 100%;
+        border-bottom: 1px solid black;
+        @include flex-direction-wrap(row,nowrap);
+        justify-content: space-around;
+    }
+}

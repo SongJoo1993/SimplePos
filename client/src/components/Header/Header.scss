@@ -4,19 +4,45 @@
 
 
 .header {
-    &__logo {
+    @include flex-direction-wrap(row, nowrap);
+    justify-content: flex-start;
+    background-color: black;
+    align-items: center;
+    height: 4rem;
+    
+    @include tablet-breakpoint {
+        height: 3rem;
+    }
 
+    &__logo {
+        @include header-item;
+        
+        @include tablet-breakpoint {
+            margin: 0 1rem;
+        }
     }
 
     &__main {
+        @include header-item;
         
+        @include tablet-breakpoint {
+            margin: 0 1rem;
+        }
     }
 
     &__products {
+        @include header-item;
         
+        @include tablet-breakpoint {
+            margin: 0 1rem;
+        }
     }
     
     &__log-out {
+        @include header-item;
         
+        @include tablet-breakpoint {
+            margin-left: 56%;
+        }
     }
 }

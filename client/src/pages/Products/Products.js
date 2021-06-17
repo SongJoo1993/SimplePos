@@ -1,6 +1,7 @@
 import Header from '../../components/Header/index';
 
-function Products () {
+function Products (props) {
+    console.log(props)
     return(
         <section>
             <Header />

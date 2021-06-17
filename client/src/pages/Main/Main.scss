@@ -1,0 +1,21 @@
+@use "../../partials/mixin" as *;
+@use "../../partials/typography" as *;
+@use "../../partials/variables" as *;
+
+
+.main {
+    
+    &__body {
+        @include flex-direction-wrap(row,nowrap);
+
+        @include tablet-breakpoint {
+            
+        }
+    }
+
+    &__sub-box {
+        @include flex-direction-wrap(column,nowrap);
+        align-items: center;
+    }
+
+}
