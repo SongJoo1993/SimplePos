@@ -1,5 +1,32 @@
+@use "../../../../partials/mixin" as *;
+@use "../../../../partials/typography" as *;
+@use "../../../../partials/variables" as *;
 
 
 .item-list {
     
+
+    &__category-bar {
+        @include flex-direction-wrap(row,nowrap);
+        justify-content: space-around;
+    }
+
+    &__section-bar {
+        @include flex-direction-wrap(row,nowrap);
+        justify-content: space-around;
+    }
+    
+    &__item-box {
+        @include flex-direction-wrap(row,wrap);
+        justify-content: space-around;
+    }
+
+    &__single-item {
+        margin: 0 0 1rem 0;
+        width: 45%;
+        height: 15vh;
+        text-align: center;
+        background-color: black;
+        color: white;    
+    }
 }
