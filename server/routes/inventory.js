@@ -13,7 +13,6 @@ router
     .route('/')
     .get((_req,res) => {
         const inventoryData = readInventoryFile();
-        // console.log(inventoryData);
         res.send(inventoryData);
     })
 

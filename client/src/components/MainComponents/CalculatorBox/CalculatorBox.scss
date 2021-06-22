@@ -1,8 +1,34 @@
-
+@use "../../../partials/mixin" as *;
+@use "../../../partials/typography" as *;
+@use "../../../partials/variables" as *;
 
 .calculatorBox {
     width: 45vw;
-    height: 35%;
+    height: 36%;
     border: 1px solid black;
     margin: 1rem 1rem 0 1rem;
+    @include flex-direction-wrap(column,nowrap);
+
+    &__sub-total {
+        @include flex-direction-wrap(row,nowrap);
+        justify-content: space-between;
+        padding: 0 1rem;
+    }
+
+    &__tax {
+        @include flex-direction-wrap(row,nowrap);
+        justify-content: space-between;
+        padding: 0 1rem;
+    }
+
+    &__quantity {
+        @include flex-direction-wrap(row,nowrap);
+        justify-content: space-between;
+        padding: 0 1rem;
+    }
+
+    &__purchase-button {
+        padding: 0 1rem;
+        align-self: center;
+    }
 }

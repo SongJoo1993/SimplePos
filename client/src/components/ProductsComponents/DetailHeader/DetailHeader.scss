@@ -1,0 +1,43 @@
+@use "../../../partials/mixin" as *;
+@use "../../../partials/typography" as *;
+@use "../../../partials/variables" as *;
+
+.detail-header {
+    
+    @include flex-direction-wrap(row,nowrap);
+    justify-content: flex-end;
+    margin-top: 1rem;
+
+    &__add {
+        margin-right: 1rem;
+        background-color: aqua;
+        border: 1px solid aqua;
+        border-radius: 5px;
+        color: white;
+        width: 4rem;
+        height: 2rem;
+        font-weight: 700;
+    }
+
+    &__edit {
+        margin-right: 1rem;
+        background-color: aqua;
+        border: 1px solid aqua;
+        border-radius: 5px;
+        color: white;
+        width: 4rem;
+        height: 2rem;
+        font-weight: 700;
+    }
+
+    &__delete {
+        margin-right: 1rem;
+        background-color: aqua;
+        border: 1px solid aqua;
+        border-radius: 5px;
+        color: white;
+        width: 4rem;
+        height: 2rem;
+        font-weight: 700;
+    }
+}

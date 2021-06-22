@@ -47,7 +47,6 @@ class App extends Component {
     if(!this.state.inventoryData) {
       console.log("Menu is being Loaded...");
     }
-    
     return (
       <div className="App">
         <Router>
@@ -63,10 +62,11 @@ class App extends Component {
               )}
             />
             <Route 
-              path="/products" 
+              path="/products"
               render={(routerProps) => (
                 <Products 
                   inventoryData = {this.state.inventoryData}
+                  getInventoryItems ={this.getInventoryItems}
                   {...routerProps}
                 />
               )}

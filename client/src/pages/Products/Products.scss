@@ -1,0 +1,13 @@
+@use "../../partials/mixin" as *;
+@use "../../partials/typography" as *;
+@use "../../partials/variables" as *;
+
+.products {
+
+    &__body {
+        @include flex-direction-wrap(row,nowrap);
+        margin-top: 1rem;
+        justify-content: center;
+    }
+
+}

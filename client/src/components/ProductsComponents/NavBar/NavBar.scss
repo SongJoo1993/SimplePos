@@ -1,0 +1,45 @@
+
+.nav-bar {
+    border: 1px solid black;
+    width: 35vw;
+    height: 90vh;
+}
+
+.nav-bar {
+    list-style: none;
+    margin-top: 0;
+    padding: 0;
+
+    &__category {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        font-size: 1.5rem;
+        color: green;
+    }
+
+    &__section {
+        margin-top: 1rem;
+        list-style: none;
+        font-size: 1.5rem;
+        padding: 0;
+        color: pink;
+    }
+    
+    &__item-link{
+        text-decoration: none;
+    }
+
+    &__item{
+        padding-left: 72px;
+        color: black;
+    }
+}
+
+.rc-menu-inline{
+    padding-left: 0;
+}
+
+
+.rc-menu-submenu-open{
+    list-style: none;
+}

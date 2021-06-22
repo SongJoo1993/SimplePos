@@ -1,0 +1,52 @@
+@use "../../../partials/mixin" as *;
+@use "../../../partials/typography" as *;
+@use "../../../partials/variables" as *;
+
+
+.add-item {
+    border: 1px solid black;
+    margin-left: 1.5rem;
+    width: 55vw;
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 2rem;
+    }
+    
+    &__form-box {
+        width: 100%;
+    }
+
+    &__row {
+        @include flex-direction-wrap(column, nowrap);
+        align-items: flex-start;
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    &__row-first-box {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    &__label {
+        margin:0;
+        font-size: 1.5rem;
+    }
+    
+    &__input {
+        padding-left: 1rem;
+        margin-left: 1rem;
+        width: 50%;
+        margin:0;
+        font-size: 1.5rem;
+    }
+
+    &__button-box {
+        align-self: flex-end;
+    }
+}
