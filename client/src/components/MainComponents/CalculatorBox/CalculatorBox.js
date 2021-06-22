@@ -80,16 +80,16 @@ class CalculatorBox extends Component {
         return(
             <section className="calculatorBox">
                 <div className="calculatorBox__sub-total">
-                    <h2>Sub Total</h2>
-                    <h2>${this.state.sum}</h2>
+                    <h2 className="calculatorBox__sub-total-text">Sub Total</h2>
+                    <h2 className="calculatorBox__sub-total-content">${this.state.sum}</h2>
                 </div>
                 <div className="calculatorBox__tax">
-                    <h2>Tax</h2>
-                    <h2>${this.state.tax}</h2>
+                    <h2 className="calculatorBox__tax-text">Tax</h2>
+                    <h2 className="calculatorBox__tax-content">${this.state.tax}</h2>
                 </div>
                 <div className="calculatorBox__quantity">
-                    <h2>QTY</h2>
-                    <h2>{this.state.qty}</h2>
+                    <h2 className="calculatorBox__quantity-text">QTY</h2>
+                    <h2 className="calculatorBox__quantity-content">{this.state.qty}</h2>
                 </div> 
                 <button className="calculatorBox__purchase-button" onClick={this.sendingOrder}>
                     Purchase

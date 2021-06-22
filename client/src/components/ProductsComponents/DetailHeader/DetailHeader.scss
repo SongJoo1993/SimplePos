@@ -10,34 +10,37 @@
 
     &__add {
         margin-right: 1rem;
-        background-color: aqua;
-        border: 1px solid aqua;
-        border-radius: 5px;
-        color: white;
+        background-color: white;
+        border: 1px solid white;
+        border-radius: 1rem;
+        color: black;
         width: 4rem;
         height: 2rem;
         font-weight: 700;
+        font-family: sans-serif;
     }
 
     &__edit {
         margin-right: 1rem;
-        background-color: aqua;
-        border: 1px solid aqua;
-        border-radius: 5px;
-        color: white;
+        background-color: white;
+        border: 1px solid white;
+        border-radius: 1rem;
+        color: black;
         width: 4rem;
         height: 2rem;
         font-weight: 700;
+        font-family: sans-serif;
     }
 
     &__delete {
         margin-right: 1rem;
-        background-color: aqua;
-        border: 1px solid aqua;
-        border-radius: 5px;
-        color: white;
+        background-color: white;
+        border: 1px solid white;
+        border-radius: 1rem;
+        color: black;
         width: 4rem;
         height: 2rem;
         font-weight: 700;
+        font-family: sans-serif;
     }
 }

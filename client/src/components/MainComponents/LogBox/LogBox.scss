@@ -5,12 +5,12 @@
 .logBox {
     width: 45vw;
     height: 60%;
-    border: 1px solid black;
+    border: 3px solid white;
     margin: 1rem 1rem 0 1rem;
     
     &__header {
         width: 100%;
-        border-bottom: 1px solid black;
+        border-bottom: 3px solid white;
         @include flex-direction-wrap(row,nowrap);
         justify-content: space-around;
     }
@@ -22,52 +22,74 @@
     &__single-item {
         @include flex-direction-wrap(row,nowrap);
         justify-content: space-around;
-        align-items: baseline;
+        align-items: center;
+        color: white;
+        font-family: sans-serif;
     }
 
     &__header-id {
         font-size: 1rem;
         width: 20%;
+        font-family: sans-serif;
+        color: white;
     }
 
     &__header-name {
         font-size: 1rem;
         width: 20%;
+        font-family: sans-serif;
+        color: white;
     }
 
     &__header-quantity {
         font-size: 1rem;
         width: 20%;
+        font-family: sans-serif;
+        color: white;
     }
 
     &__header-price {
         font-size: 1rem;
         width: 20%;
+        font-family: sans-serif;
+        color: white;
     }
 
     &__id {
         font-size: 0.63rem;
         width: 20%;
+        font-family: sans-serif;
+        color: white;
     }
 
     &__name {
         font-size: 0.687rem;
         width: 20%;
+        font-family: sans-serif;
+        color: white;
     }
 
     &__quantity {
         width: 20%;
+        font-family: sans-serif;
+        color: white;
     }
     
     &__input {
         width: 20%;
+        font-family: sans-serif;
+        color: black;
         height: 10px;
+        border-radius: 1rem;
+        border: 1px solid white;
+        text-align: center;
     }
-
 
     &__price {
         font-size: 0.63rem;
         width: 20%;
+        font-family: sans-serif;
+        color: white;
     }
 
 }

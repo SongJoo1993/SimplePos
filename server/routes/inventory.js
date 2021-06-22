@@ -42,8 +42,10 @@ router
     .delete((req,res) => {
         const inventoryData = readInventoryFile();
         const { category, section, deletingId } = req.params;
-
+        
         const deletedInventory = removingItem(inventoryData, category, section, deletingId);
+        // console.log(deletedInventory[0].sections[0].menu_items);
+        console.log("delete worked!")
         fs.writeFileSync(inventoryFilePath, JSON.stringify(deletedInventory), 'utf-8')
         res.json(inventoryData);
     })
@@ -77,10 +79,14 @@ function addNewItem (inventoryData, inputCategory, inputSection, newItem) {
 }
 
 function removingItem (data, inputCategory, inputSection, deletingId) {
+    console.log(deletingId);
     const categoryObject = data.find(singleCategory => singleCategory.category === inputCategory );
     const sectionObject = categoryObject.sections.find(singleSection => singleSection.section_name === inputSection);
     const itemObject = sectionObject.menu_items.find(singleItem => singleItem.id === deletingId);
+    // console.log(categoryObject,sectionObject,itemObject);
     for(let i = 0; i < sectionObject.menu_items.length; i ++) {
+        console.log(sectionObject.menu_items[i]);
+        console.log(itemObject.id);
         if(sectionObject.menu_items[i].id === itemObject.id) {
             sectionObject.menu_items.splice(i,1);
         }

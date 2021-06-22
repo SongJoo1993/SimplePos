@@ -15,7 +15,7 @@ class DetailBox extends Component {
     }
 
     render() {
-        console.log(this.props.selectedItem);
+        console.log(this.state);
         return(
             <section className="detail-box">
                 <DetailHeader />
@@ -50,12 +50,13 @@ class DetailBox extends Component {
                             {this.props.selectedItem.category === undefined ? `$${this.state.price}` : `$${this.props.selectedItem.price}`}
                         </p>
                     </div>
-                    <div className="detail-box__selected-item-box" >
+                    <div className="detail-box__selected-description-box" >
                         <h2 className = "detail-box__title">Description</h2>
                         <p className = "detail-box__content">
                             {this.props.selectedItem.category === undefined ? this.state.description : this.props.selectedItem.description}
                         </p>
                     </div>
+                    <button className="detail-header__delete" onClick={this.props.onClick} name={[this.props.selectedItem.category,this.props.selectedItem.sections]}>Delete</button>
                 </section>
             </section>
         )

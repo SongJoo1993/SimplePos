@@ -54,7 +54,8 @@ class AddBox extends Component {
         axios
             .post(`${process.env.REACT_APP_API_URL}/inventory/add-newItem`, newItem)
             .then(res => {
-                console.log(res);
+                this.props.getInventoryItems();
+                this.props.history.goBack();
             })
             .catch(error => {
                 console.log(error);

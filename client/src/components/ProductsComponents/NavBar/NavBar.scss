@@ -9,12 +9,15 @@
     list-style: none;
     margin-top: 0;
     padding: 0;
+    border: 3px solid white;
 
     &__category {
         margin-top: 1rem;
         padding-top: 1rem;
         font-size: 1.5rem;
-        color: green;
+        color: darkgrey;
+        font-family: sans-serif;
+        font-weight: bold;
     }
 
     &__section {
@@ -22,7 +25,8 @@
         list-style: none;
         font-size: 1.5rem;
         padding: 0;
-        color: pink;
+        color: lightgrey;
+        font-family: sans-serif;
     }
     
     &__item-link{
@@ -30,8 +34,16 @@
     }
 
     &__item{
-        padding-left: 72px;
-        color: black;
+        margin-top: 1rem;
+        font-size: 1rem;
+        color: darkcyan;
+        font-weight: 600;
+        list-style: none;
+        padding-left: 4rem;
+        font-family: sans-serif;
+    }
+    &__item:hover {
+        font-size: 2rem;
     }
 }
 

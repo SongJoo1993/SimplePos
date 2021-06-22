@@ -4,10 +4,10 @@
 
 
 .detail-box {
-    border: 1px solid black;
-    width: 60vw;
+    border: 3px solid white;
+    width: 55vw;
     height: 90vh;
-    margin-left: 1rem;
+    margin-left: 1.5rem;
 
     &__detail-box {
         @include flex-direction-wrap(column, nowrap);
@@ -19,17 +19,25 @@
     &__selected-item-box{
         @include flex-direction-wrap(row, nowrap);
         align-items: baseline;
-        height: 15%;
+        height: 10%;
+    }
+    
+    &__selected-description-box{
+        @include flex-direction-wrap(row, nowrap);
+        align-items: baseline;
+        height: 20%;
     }
 
     &__title {
+        color: white;
         width: 30%;
         margin:0;
         font-size: 1.5rem;
     }
     
     &__content {
-        padding-left: 1rem;
+        color: whitesmoke;
+        padding-left: 2rem;
         width: 70%;
         margin:0;
         font-size: 1.5rem;

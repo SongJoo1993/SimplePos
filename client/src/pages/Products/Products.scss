@@ -6,8 +6,8 @@
 
     &__body {
         @include flex-direction-wrap(row,nowrap);
-        margin-top: 1rem;
+        padding-top: 1rem;
         justify-content: center;
+        background-color: rgb(48,48,48);
     }
-
 }

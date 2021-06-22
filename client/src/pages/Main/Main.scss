@@ -7,10 +7,8 @@
     
     &__body {
         @include flex-direction-wrap(row,nowrap);
-
-        @include tablet-breakpoint {
-            
-        }
+        background-color: rgb(48,48,48);
+        height: 95vh;
     }
 
     &__sub-box {

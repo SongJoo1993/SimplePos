@@ -12,7 +12,7 @@ class App extends Component {
     inventoryData: []
   }
 
-  getInventoryItems() {
+  getInventoryItems = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/inventory`)
       .then((response) => {
@@ -21,21 +21,27 @@ class App extends Component {
         })
       })
       .catch((error) => {
-        console.log(error)
+        console.log(`Error: ${error}`)
       })
   }
 
-  deleteInventoryItem (category,section,id) {
+  deleteInventoryItem = (category,section,id) => {
+    console.log("delete function reached!")
+    console.log(category, section, id);
     axios
-      .delete(`${process.env.REACT_APP_API_URL}/${category}/${section}/${id}`)
-      // .then(getInventoryItems()) --> Try this first!
+      .delete(`${process.env.REACT_APP_API_URL}/inventory/${category}/${section}/${id}`)
       .then(() => {
+        console.log("first then passed");
         return axios.get(`${process.env.REACT_APP_API_URL}/inventory`)
       })
       .then((response) => {
+        console.log("second then passed");
         this.setState({
           inventoryData: response.data
         })
+      })
+      .catch((err) => {
+        console.log(`Error: ${err}`)
       })
   }
 
@@ -51,7 +57,7 @@ class App extends Component {
       <div className="App">
         <Router>
           <Switch>
-            <Route path="/login" exact component={Login} />
+            <Route path="/" exact component={Login} />
             <Route 
               path="/main" 
               render={(routerProps) => (
@@ -67,6 +73,7 @@ class App extends Component {
                 <Products 
                   inventoryData = {this.state.inventoryData}
                   getInventoryItems ={this.getInventoryItems}
+                  deleteInventoryItem={this.deleteInventoryItem}
                   {...routerProps}
                 />
               )}
