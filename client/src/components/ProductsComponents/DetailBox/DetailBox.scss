@@ -25,7 +25,7 @@
     &__selected-description-box{
         @include flex-direction-wrap(row, nowrap);
         align-items: baseline;
-        height: 20%;
+        height: 35%;
     }
 
     &__title {
@@ -41,5 +41,19 @@
         width: 70%;
         margin:0;
         font-size: 1.5rem;
+    }
+    &__delete {
+        align-self: flex-end;
+        margin-top: 1rem;
+        padding: 0 1rem;
+        width: 30%;
+        height: 2rem;
+        border: 1px solid darkcyan;
+        background-color: darkcyan;
+        color: white;
+        border-radius: 1rem;
+        font-family: sans-serif;
+        font-size: 20px;
+        font-weight: 500;
     }
 }

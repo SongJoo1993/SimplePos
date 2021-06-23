@@ -8,7 +8,6 @@ function DetailHeader (props) {
                 <button className="detail-header__add">Add</button>
             </NavLink>
             <button className="detail-header__edit">Edit</button>
-            {/* <button className="detail-header__delete" onClick={props.onClick} >Delete</button> */}
         </header>
     )
 }

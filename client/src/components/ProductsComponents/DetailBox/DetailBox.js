@@ -56,7 +56,7 @@ class DetailBox extends Component {
                             {this.props.selectedItem.category === undefined ? this.state.description : this.props.selectedItem.description}
                         </p>
                     </div>
-                    <button className="detail-header__delete" onClick={this.props.onClick} name={[this.props.selectedItem.category,this.props.selectedItem.sections]}>Delete</button>
+                    <button className="detail-box__delete" onClick={this.props.onClick} name={[this.props.selectedItem.category,this.props.selectedItem.sections]}>Delete</button>
                 </section>
             </section>
         )
