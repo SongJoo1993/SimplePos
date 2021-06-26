@@ -5,8 +5,6 @@ import Login from './pages/Login/index';
 import Main from './pages/Main/index';
 import Products from './pages/Products/index';
 
-
-
 class App extends Component {
 
   state = {
@@ -27,16 +25,12 @@ class App extends Component {
   }
 
   deleteInventoryItem = (category,section,id) => {
-    console.log("delete function reached!")
-    console.log(category, section, id);
     axios
       .delete(`${process.env.REACT_APP_API_URL}/inventory/${category}/${section}/${id}`)
       .then(() => {
-        console.log("first then passed");
         return axios.get(`${process.env.REACT_APP_API_URL}/inventory`)
       })
       .then((response) => {
-        console.log("second then passed");
         this.setState({
           inventoryData: response.data
         })

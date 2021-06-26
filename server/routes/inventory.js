@@ -60,9 +60,7 @@ router
 
 
 function addNewItem (inventoryData, inputCategory, inputSection, newItem) {
-    console.log(inputCategory);
     const categoryObject = inventoryData.find(inventory => inventory.category === inputCategory );
-    console.log(categoryObject);
     const sectionObject = categoryObject.sections.find(item => item.section_name === inputSection);
     sectionObject.menu_items.push(newItem);
     for(let i = 0; i < inventoryData.length; i++) {
@@ -74,13 +72,10 @@ function addNewItem (inventoryData, inputCategory, inputSection, newItem) {
 }
 
 function removingItem (data, inputCategory, inputSection, deletingId) {
-    console.log(deletingId);
     const categoryObject = data.find(singleCategory => singleCategory.category === inputCategory );
     const sectionObject = categoryObject.sections.find(singleSection => singleSection.section_name === inputSection);
     const itemObject = sectionObject.menu_items.find(singleItem => singleItem.id === deletingId);
     for(let i = 0; i < sectionObject.menu_items.length; i ++) {
-        console.log(sectionObject.menu_items[i]);
-        console.log(itemObject.id);
         if(sectionObject.menu_items[i].id === itemObject.id) {
             sectionObject.menu_items.splice(i,1);
         }
