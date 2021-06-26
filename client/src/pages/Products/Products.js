@@ -4,9 +4,7 @@ import Header from '../../components/Header/index';
 import NavBar from '../../components/ProductsComponents/NavBar/index';
 import DetailBox from '../../components/ProductsComponents/DetailBox/index';
 import AddBox from '../../components/ProductsComponents/AddBox/index';
-import axios from 'axios';
 import "./Products.scss";
-
 
 class Products extends Component {
 
@@ -54,9 +52,6 @@ class Products extends Component {
                 for(const section of category.sections) {
                     for(const menuItem of section.menu_items) {
                         if(menuItem.name === this.state.selectedItem.name) {
-                            // console.log(menuItem.name)
-                            // console.log(this.state.selectedItem.name)
-                            // console.log(categoryInput, sectionInput);
                             this.props.deleteInventoryItem(categoryInput, sectionInput, menuItem.id);
                             this.props.history.push(`/main`);
                         }
@@ -69,7 +64,7 @@ class Products extends Component {
 
     render() {
         const {inventoryData} = this.props;
-        console.log(this.props);
+
         return(
             <section className="products">
                 <Header />
@@ -79,7 +74,7 @@ class Products extends Component {
                         <Route path={`${this.props.match.url}/`} exact render={(routerProps) => ( 
                             <DetailBox selectedItem={this.state.selectedItem} onClick={this.deleteItem} {...routerProps}/>)}/>
                         <Route path={`${this.props.match.url}/add-new`} render={(routerProps) => (
-                            <AddBox inventoryData = {this.state.inventoryData} getInventoryItems={this.props.getInventoryItems} {...routerProps} />)}/>
+                            <AddBox inventoryData = {inventoryData} getInventoryItems={this.props.getInventoryItems} {...routerProps} />)}/>
                         <Route path={`${this.props.match.url}/:productId/detail`} render={(routerProps) => ( 
                             <DetailBox selectedItem={this.state.selectedItem} onClick={this.deleteItem} {...routerProps}/>)}/>
                     </Switch>
@@ -88,6 +83,5 @@ class Products extends Component {
         )
     }
 }
-
 
 export default Products

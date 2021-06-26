@@ -1,12 +1,15 @@
 import "../NavBar/NavBar.scss";
-// import {Link} from 'react-router-dom';
-// import * as FaIcons from "react-icons/fa";
 import { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import Menu, {SubMenu, Item as MenuItem } from 'rc-menu';
 
 class NavBar extends Component {
-    keyGenerator () {
+    
+    state = {
+        clicked: false
+    }
+
+    clicked () {
         
     }
     

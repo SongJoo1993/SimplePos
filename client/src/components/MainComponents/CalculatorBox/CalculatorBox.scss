@@ -3,8 +3,9 @@
 @use "../../../partials/variables" as *;
 
 .calculatorBox {
+    background-color: rgb(32,32,32);
     width: 45vw;
-    height: 32%;
+    height: 31%;
     border: 3px solid white;
     margin: 1rem;
     @include flex-direction-wrap(column,nowrap);

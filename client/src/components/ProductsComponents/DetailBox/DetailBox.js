@@ -2,7 +2,6 @@ import "../DetailBox/DetailBox.scss";
 import DetailHeader from "../DetailHeader/index"
 import { Component } from 'react';
 
-
 class DetailBox extends Component {
 
     state = {
@@ -15,7 +14,6 @@ class DetailBox extends Component {
     }
 
     render() {
-        console.log(this.state);
         return(
             <section className="detail-box">
                 <DetailHeader />

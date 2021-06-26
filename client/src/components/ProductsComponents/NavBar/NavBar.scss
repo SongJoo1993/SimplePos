@@ -10,6 +10,7 @@
     margin-top: 0;
     padding: 0;
     border: 3px solid white;
+    background-color: #202020;
 
     &__category {
         margin-top: 1rem;
@@ -19,6 +20,26 @@
         font-family: sans-serif;
         font-weight: bold;
     }
+
+    &__dummy {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        font-size: 1.5rem;
+        color: darkgrey;
+        font-family: sans-serif;
+        font-weight: bold;
+    }
+    
+    &__dummy-item {
+        margin-top: 1rem;
+        font-size: 1rem;
+        color: darkcyan;
+        font-weight: 600;
+        list-style: none;
+        padding-left: 4rem;
+        font-family: sans-serif;
+    }
+
 
     &__section {
         margin-top: 1rem;

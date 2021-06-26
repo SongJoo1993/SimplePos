@@ -26,9 +26,6 @@ class AddBox extends Component {
         } else if(isNaN(this.state.price)) {
             return false;
         } 
-        // else if(this.state.availability !== "true" || this.state.availability !== "false"   ) {
-        //     return false;
-        // }
         return true;
     }
 
@@ -37,6 +34,23 @@ class AddBox extends Component {
         this.setState({
             [name]: value
         });
+    }
+
+    bringSection = (category) => {
+        if(!category) {
+            return (
+                <option value="section" className="add-item__input">Section</option>
+            )
+        }
+        let newCategory = this.props.inventoryData.filter(inventory => inventory.category === category)[0];
+        return newCategory.sections.map((section,i) => {
+            console.log(section.section_name)
+            return (
+                <option key={i} value={section.section_name} className="add-item__input">
+                    {section.section_name}
+                </option>
+            )
+        })
     }
 
     handleFormSubmit = (e) => {
@@ -63,7 +77,7 @@ class AddBox extends Component {
     }
 
     render() {
-        console.log(this.props);
+        console.log(this.props.inventoryData);
         return(
             <section className="add-item">
                 {/* <Header /> */}
@@ -74,28 +88,20 @@ class AddBox extends Component {
                         <div className="add-item__row">
                             <div className="add-item__row-first-box">
                                 <label className="add-item__label" htmlFor="category">Category</label>
-                                <input 
-                                    type="text"
-                                    id="category"
-                                    name="category"
-                                    className="add-item__input"
-                                    placeholder="Category"
-                                    onChange={this.handleInputChange}
-                                />
+                                <select value={this.state.category} name="category" id="category" className="add-item__optional-input" onChange={this.handleInputChange}>
+                                    {this.props.inventoryData.map(category => {
+                                        return (<option value={category.category} key={Math.random()}>{category.category}</option>)
+                                    })}
+                                </select>
                             </div>
                         </div>
                         {/* Section */}
                         <div className="add-item__row">
                             <div className="add-item__row-first-box">
                                 <label className="add-item__label" htmlFor="section">Section</label>
-                                <input 
-                                    type="text"
-                                    id="section"
-                                    name="section"
-                                    className="add-item__input"
-                                    placeholder="Section"
-                                    onChange={this.handleInputChange}
-                                />
+                                <select name="section" id="section" value={this.state.section} onChange={this.handleInputChange} className="add-item__optional-input">
+                                    {this.bringSection(this.state.category)}
+                                </select>
                             </div>
                         </div>
                         {/* Name */}

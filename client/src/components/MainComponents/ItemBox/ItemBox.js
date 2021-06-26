@@ -14,7 +14,6 @@ class ItemBox extends Component {
         axios
         .get(`${process.env.REACT_APP_API_URL}/inventory`)
         .then((response) => {
-            // console.log(response);
             this.setState({
                 category: response.data[0].category,
                 section: response.data[0].sections,
@@ -73,7 +72,6 @@ class ItemBox extends Component {
                 <div className="item-list__item-box">
                     {
                         this.state.items.map(item => {
-                            // return <h5 key={Math.random()} className="item-list__single-item" onClick={() => {onClick(item.id)}}> {item.name} </h5>
                             return <h5 key={Math.random()} className="item-list__single-item" onClick={() => {onClick(item.name)}}> {item.name} </h5>
                         })
                     }

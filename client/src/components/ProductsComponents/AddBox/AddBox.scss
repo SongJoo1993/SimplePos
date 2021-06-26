@@ -8,6 +8,7 @@
     height: 90vh;
     margin-left: 1.5rem;
     width: 55vw;
+    background-color: #202020;
 
     &__form {
         display: flex;
@@ -38,6 +39,17 @@
         margin:0;
         font-size: 1.5rem;
         color: white;
+    }
+    
+    &__optional-input {
+        padding-left: 1rem;
+        margin-left: 1rem;
+        width: 56%;
+        height: 2rem;
+        margin: 0;
+        font-size: 1.5rem;
+        border-radius: 1rem;
+        border: 1px solid white;
     }
     
     &__input {

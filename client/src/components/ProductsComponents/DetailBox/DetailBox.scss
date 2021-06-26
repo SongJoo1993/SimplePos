@@ -8,6 +8,7 @@
     width: 55vw;
     height: 90vh;
     margin-left: 1.5rem;
+    background-color: #202020;
 
     &__detail-box {
         @include flex-direction-wrap(column, nowrap);

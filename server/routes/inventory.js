@@ -44,7 +44,6 @@ router
         const { category, section, deletingId } = req.params;
         
         const deletedInventory = removingItem(inventoryData, category, section, deletingId);
-        // console.log(deletedInventory[0].sections[0].menu_items);
         console.log("delete worked!")
         fs.writeFileSync(inventoryFilePath, JSON.stringify(deletedInventory), 'utf-8')
         res.json(inventoryData);
@@ -52,22 +51,18 @@ router
 
 router
     .route('/:category/:section/:editId')
-    .put((req,res) => {
+    .put((req,_res) => {
         const inventoryData = readInventoryFile();
         const { category, section, editId } = req.params;
-        // console.log(req.body);
-        // console.log(category);
-        // console.log(section);
-        // console.log(editId);
-        
-        // formValidation(req.body,res)
         editValidation(inventoryData, category, section, editId, req.body);
 
     })
 
 
 function addNewItem (inventoryData, inputCategory, inputSection, newItem) {
+    console.log(inputCategory);
     const categoryObject = inventoryData.find(inventory => inventory.category === inputCategory );
+    console.log(categoryObject);
     const sectionObject = categoryObject.sections.find(item => item.section_name === inputSection);
     sectionObject.menu_items.push(newItem);
     for(let i = 0; i < inventoryData.length; i++) {
@@ -83,7 +78,6 @@ function removingItem (data, inputCategory, inputSection, deletingId) {
     const categoryObject = data.find(singleCategory => singleCategory.category === inputCategory );
     const sectionObject = categoryObject.sections.find(singleSection => singleSection.section_name === inputSection);
     const itemObject = sectionObject.menu_items.find(singleItem => singleItem.id === deletingId);
-    // console.log(categoryObject,sectionObject,itemObject);
     for(let i = 0; i < sectionObject.menu_items.length; i ++) {
         console.log(sectionObject.menu_items[i]);
         console.log(itemObject.id);
@@ -94,38 +88,9 @@ function removingItem (data, inputCategory, inputSection, deletingId) {
     return data;
 }
 
-function editValidation (data, inputCategory, inputSection, deletingId, inputObject) {
-    const categoryObject = data.find(singleCategory => singleCategory.category === inputCategory );
-    const sectionObject = categoryObject.sections.find(singleSection => singleSection.section_name === inputSection);
-    const itemObject = sectionObject.menu_items.find(singleItem => singleItem.id === deletingId);
-    console.log(itemObject);
-    
-    
-    
-    const updatedInventoryItem = {
-        category: inputObject.category,
-        section: inputObject.section,
-        name: inputObject.name,
-        description: inputObject.description,
-        price: inputObject.price,
-        availability: inputObject.availability,
-    };
-    // console.log(updatedInventoryItem);
-
-
-    // for(let i = 0; i < sectionObject.menu_items.length; i ++) {
-    //     if(sectionObject.menu_items[i].id === itemObject.id) {
-    //         sectionObject.menu_items.splice(i,1);
-    //     }
-    // }
-
-    // return data;
-}
-
 function formValidation(input,res) {
     let emptyMessage = '';
     let errorCollector = [];
-    let wrongMessage = '';
     let passMessage = "All Info Received!";
 
     const { category, section, name, description, price, availability } = input;
