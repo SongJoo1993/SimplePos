@@ -2,6 +2,7 @@
 # Simple POS
 
 Simple POS is a Point of Sales system that helps businesses to process orders and manages inventory items!
+Since Simple POS is designed for tablet devices, please ensure to select talbet device on the inspection page when viewing the product!
 
 
 ## Installation Steps
