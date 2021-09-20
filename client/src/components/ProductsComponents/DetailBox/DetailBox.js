@@ -14,9 +14,10 @@ class DetailBox extends Component {
     }
 
     render() {
+        // console.log(this.props)
         return(
             <section className="detail-box">
-                <DetailHeader />
+                <DetailHeader selectedUrl={this.props.match}/>
                 <section className="detail-box__detail-box">
                     <div className="detail-box__selected-item-box" >
                         <h2 className = "detail-box__title">Category </h2>
@@ -54,7 +55,7 @@ class DetailBox extends Component {
                             {this.props.selectedItem.category === undefined ? this.state.description : this.props.selectedItem.description}
                         </p>
                     </div>
-                    <button className="detail-box__delete" onClick={this.props.onClick} name={[this.props.selectedItem.category,this.props.selectedItem.sections]}>Delete</button>
+                    <button className="detail-box__delete" onClick={this.props.onClick} name={[this.props.selectedItem.category,this.props.selectedItem.sections]}>DELETE</button>
                 </section>
             </section>
         )

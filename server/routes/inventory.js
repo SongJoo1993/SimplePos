@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { FORMERR } = require('dns');
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 const inventoryFilePath = __dirname + "/../data/inventory.json";
@@ -44,18 +45,35 @@ router
         const { category, section, deletingId } = req.params;
         
         const deletedInventory = removingItem(inventoryData, category, section, deletingId);
-        console.log("delete worked!")
         fs.writeFileSync(inventoryFilePath, JSON.stringify(deletedInventory), 'utf-8')
         res.json(inventoryData);
     })
 
 router
     .route('/:category/:section/:editId')
-    .put((req,_res) => {
+    .put((req,res) => {
         const inventoryData = readInventoryFile();
         const { category, section, editId } = req.params;
-        editValidation(inventoryData, category, section, editId, req.body);
+        // editValidation(inventoryData, category, section, editId, req.body);
 
+        const editedItem = {
+            id: editId,
+            name: req.body.name,
+            description: req.body.description, 
+            price: req.body.price, 
+            availability: req.body.availability
+        }
+
+        const editingItem = editItem(inventoryData, category, section, editId, editedItem);
+        // console.log(editingItem[0].sections[2].menu_items);
+        fs.writeFile(inventoryFilePath, JSON.stringify(editingItem), 'utf-8', err => {
+            if(err) {
+                console.log(err)
+            } else {
+                console.log("File Edited Successfully!")
+            }
+        })
+        res.json(editedItem);
     })
 
 
@@ -68,6 +86,21 @@ function addNewItem (inventoryData, inputCategory, inputSection, newItem) {
             inventoryData.splice(i,1,categoryObject);
         }
     }
+    return inventoryData;
+}
+
+function editItem (inventoryData, inputCategory, inputSection, editingId, editedItem) {
+    const categoryObject = inventoryData.find(inventory => inventory.category === inputCategory );
+    const sectionObject = categoryObject.sections.find(item => item.section_name === inputSection);
+
+    for(let i = 0; i < sectionObject.menu_items.length; i++) {
+        if(sectionObject.menu_items[i].id === editingId) {
+            sectionObject.menu_items.splice(i,1,editedItem)
+        }
+    }
+    // console.log(categoryObject)
+    // console.log(sectionObject)
+    // console.log(inventoryData)
     return inventoryData;
 }
 

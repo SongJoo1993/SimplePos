@@ -5,9 +5,17 @@ function DetailHeader (props) {
     return(
         <header className="detail-header">
             <NavLink to="/products/add-new">
-                <button className="detail-header__add">Add</button>
+                <button className="detail-header__add">ADD</button>
             </NavLink>
-            <button className="detail-header__edit">Edit</button>
+            {
+                props.selectedUrl === undefined ? 
+                <NavLink to="/products/:productId/edit">
+                    <button className="detail-header__edit">EDIT</button>
+                </NavLink> : 
+                <NavLink to={`/products/${props.selectedUrl.params.productId}/edit`}>
+                    <button className="detail-header__edit">EDIT</button>
+                </NavLink>
+            }
         </header>
     )
 }

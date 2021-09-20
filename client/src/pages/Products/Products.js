@@ -4,6 +4,7 @@ import Header from '../../components/Header/index';
 import NavBar from '../../components/ProductsComponents/NavBar/index';
 import DetailBox from '../../components/ProductsComponents/DetailBox/index';
 import AddBox from '../../components/ProductsComponents/AddBox/index';
+import EditBox from '../../components/ProductsComponents/EditBox/index';
 import "./Products.scss";
 
 class Products extends Component {
@@ -64,19 +65,21 @@ class Products extends Component {
 
     render() {
         const {inventoryData} = this.props;
-
+        // console.log(this.props);
         return(
             <section className="products">
                 <Header />
                 <div className="products__body">
                     <NavBar data={inventoryData} onClick={this.clickedItem}/>
                     <Switch>
-                        <Route path={`${this.props.match.url}/`} exact render={(routerProps) => ( 
-                            <DetailBox selectedItem={this.state.selectedItem} onClick={this.deleteItem} {...routerProps}/>)}/>
+                        <Route path={`${this.props.match.url}/`} exact render={() => ( 
+                            <DetailBox inventoryData={inventoryData} selectedItem={this.state.selectedItem} onClick={this.deleteItem} />)}/>
                         <Route path={`${this.props.match.url}/add-new`} render={(routerProps) => (
                             <AddBox inventoryData = {inventoryData} getInventoryItems={this.props.getInventoryItems} {...routerProps} />)}/>
                         <Route path={`${this.props.match.url}/:productId/detail`} render={(routerProps) => ( 
                             <DetailBox selectedItem={this.state.selectedItem} onClick={this.deleteItem} {...routerProps}/>)}/>
+                        <Route path={`${this.props.match.url}/:productId/edit`} render={(routerProps) => ( 
+                            <EditBox inventoryData = {inventoryData} getInventoryItems={this.props.getInventoryItems} selectedItem={this.state.selectedItem} {...routerProps}/> )}/>
                     </Switch>
                 </div>
             </section>

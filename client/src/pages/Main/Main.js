@@ -53,6 +53,7 @@ class Main extends Component {
     }
 
     render() {
+        // const {userData} = this.props.location.state;
         const {inventoryData} = this.props
         return(
             <section className="main">

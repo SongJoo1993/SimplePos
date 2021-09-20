@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import { Component } from 'react';
 import axios from 'axios';
 import Login from './pages/Login/index';
+import Signup from './pages/Signup/index'
 import Main from './pages/Main/index';
 import Products from './pages/Products/index';
 
@@ -53,6 +54,7 @@ class App extends Component {
         <Router>
           <Switch>
             <Route path="/" exact component={Login} />
+            <Route path="/signup" exact component={Signup} />
             <Route 
               path="/main" 
               render={(routerProps) => (

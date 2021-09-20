@@ -44,7 +44,7 @@ class AddBox extends Component {
         }
         let newCategory = this.props.inventoryData.filter(inventory => inventory.category === category)[0];
         return newCategory.sections.map((section,i) => {
-            console.log(section.section_name)
+            // console.log(section.section_name)
             return (
                 <option key={i} value={section.section_name} className="add-item__input">
                     {section.section_name}
@@ -67,7 +67,7 @@ class AddBox extends Component {
 
         axios
             .post(`${process.env.REACT_APP_API_URL}/inventory/add-newItem`, newItem)
-            .then(res => {
+            .then(_res => {
                 this.props.getInventoryItems();
                 this.props.history.goBack();
             })
@@ -77,7 +77,6 @@ class AddBox extends Component {
     }
 
     render() {
-        console.log(this.props.inventoryData);
         return(
             <section className="add-item">
                 {/* <Header /> */}
@@ -122,14 +121,18 @@ class AddBox extends Component {
                         <div className="add-item__row">
                             <div className="add-item__row-first-box">
                                 <label className="add-item__label" htmlFor="availability">Availability</label>
-                                <input 
+                                <select name="availability" id="availability" onChange={this.handleInputChange} className="add-item__optional-input">
+                                    <option value="false">Not  Available</option>
+                                    <option value="true">Available</option>
+                                </select>
+                                {/* <input 
                                     type="text"
                                     id="availability"
                                     name="availability"
                                     className="add-item__input"
                                     placeholder=" "
                                     onChange={this.handleInputChange}
-                                />
+                                /> */}
                             </div>
                         </div>
                         {/* Price */}
