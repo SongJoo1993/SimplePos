@@ -1,9 +1,7 @@
 
 # Simple POS
 
-Simple POS is a Point of Sales system that helps businesses to process orders and manages inventory items!
-Since Simple POS is designed for tablet devices, please ensure to select any tablet device on the inspection page when viewing the product!
-
+Simple POS is a Point of Sales system that was specifically designed for a sushi restaurant to help process orders and manage inventory items.
 
 ## Installation Steps
 
